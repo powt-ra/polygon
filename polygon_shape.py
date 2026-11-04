@@ -24,7 +24,7 @@ class Polygon:
         self._pen.speed(0)
 
     def draw(self):
-        """Draw the polygon with (x, y) as its first vertex."""
+        
         turn = 360 / self._sides  
 
         self._pen.penup()  
@@ -39,3 +39,9 @@ class Polygon:
             self._pen.left(turn)
 
         self._pen.penup()
+
+    def move_to(self, x, y):
+        self._x = x
+        self._y = y
+        self._pen.clear() 
+        self.draw()
