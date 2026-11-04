@@ -1,4 +1,3 @@
-"""Animated art: 10 Polygon objects moving along small circular paths."""
 import math
 import random
 import time
@@ -8,9 +7,7 @@ from polygon_shape import Polygon
 screen = turtle.Screen()
 screen.title("Animated Polygon Art")
 screen.bgcolor("black")
-screen.tracer(0)  # turn off automatic drawing updates
-
-# Each item: (polygon, center x, center y, radius, starting phase)
+screen.tracer(0)  
 shapes = []
 for _ in range(10):
     polygon = Polygon(
@@ -31,12 +28,12 @@ for _ in range(10):
     shapes.append((polygon, center_x, center_y, radius, phase))
 
 for frame in range(120):
-    t = frame * 0.1  # the angle grows a little every frame
+    t = frame * 0.1 
     for polygon, cx, cy, radius, phase in shapes:
         x = cx + radius * math.cos(t + phase)
         y = cy + radius * math.sin(t + phase)
-        polygon.move_to(x, y)  # only call the method, never touch _pen
-    screen.update()  # show the finished frame once
-    time.sleep(0.03)  # short pause so we can see the motion
+        polygon.move_to(x, y)  
+    screen.update()  
+    time.sleep(0.03)  
 
 screen.mainloop()
